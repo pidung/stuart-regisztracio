@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipő regisztráció</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Regisztráció</h1>
+
+    <form id="registrationForm">
+
+        <label for="name">Név:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">E-mail cím:</label>
+        <input type="email" id="email" required>
+
+        <label for="shoe">Cipőméret:</label>
+        <input type="number" id="shoe" min="20" max="60" required>
+
+        <button type="submit">Regisztráció</button>
+
+    </form>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
