@@ -6,7 +6,9 @@ document.getElementById("registrationForm").addEventListener("submit", function 
     const email = document.getElementById("email").value;
     const shoe = document.getElementById("shoe").value;
 
-    emailjs.send(
+
+    // 1. Email küldése nektek EmailJS-en keresztül
+    const emailPromise = emailjs.send(
         "service_ivj7x1h",
         "template_t9va0sg",
         {
@@ -14,7 +16,25 @@ document.getElementById("registrationForm").addEventListener("submit", function 
             email: email,
             shoe: shoe
         }
-    )
+    );
+
+
+    // 2. Adatok küldése Make webhookra
+    const makePromise = fetch("https://hook.eu1.make.com/4fcx2cdgq2o09jhh665otdf9v0vympmg", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            shoe: shoe
+        })
+    });
+
+
+    // Megvárjuk, hogy mindkettő sikeres legyen
+    Promise.all([emailPromise, makePromise])
     .then(function () {
 
         alert("Köszönjük! A regisztráció sikeresen elküldve.");
@@ -26,7 +46,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
 
         console.error(error);
 
-        alert("Hiba történt az e-mail küldésekor.");
+        alert("Hiba történt a regisztráció feldolgozása közben.");
 
     });
 
