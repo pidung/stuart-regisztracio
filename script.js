@@ -4,7 +4,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    const shoe = document.getElementById("shoe").value;
+    const phone = document.getElementById("phone").value;
 
 
     // 1. Email küldése nektek EmailJS-en keresztül
@@ -14,7 +14,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
         {
             name: name,
             email: email,
-            shoe: shoe
+            phone: phone
         }
     );
 
@@ -28,7 +28,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
         body: JSON.stringify({
             name: name,
             email: email,
-            shoe: shoe
+            phone: phone
         })
     });
 
