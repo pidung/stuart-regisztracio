@@ -65,7 +65,7 @@ async function onScanSuccess(decodedText) {
         processing = false;
         lastCode = "";
         showMessage("Várakozás QR-kódra...", true);
-    }, 30000);
+    }, 15000);
 
 }
 
